@@ -25,7 +25,9 @@ public class Library {
     @Transient
     @OneToMany(mappedBy = "library")
     private Set<User> users;
-
+    @Transient
+    @OneToMany(mappedBy = "library")
+    private Set<BookItem> bookItems;
 
     public void setName(String name) {
         if(name==null){

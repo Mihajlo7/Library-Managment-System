@@ -31,6 +31,9 @@ public class BookItem {
     @ManyToOne
     @JoinColumn(name = "book_isbn",nullable = false)
     private Book book;
+    @ManyToOne
+    @JoinColumn(name = "library_id",nullable = false)
+    private Library library;
 
     public void setUsageStatus(UsageStatus usageStatus) {
         if(usageStatus==null){
