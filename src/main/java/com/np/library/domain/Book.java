@@ -28,6 +28,7 @@ public class Book {
 
     @ManyToMany(mappedBy = "books")
     private Set<Author> authors;
+    @Transient
     @OneToMany(mappedBy = "book")
     private Set<BookItem> bookItems;
 

@@ -20,7 +20,7 @@ public class Author {
     private Long id;
     private String name;
     private String biography;
-
+    @Transient
     @ManyToMany
     @JoinTable(
             name = "author_books",

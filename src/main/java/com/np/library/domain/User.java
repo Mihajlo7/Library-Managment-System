@@ -25,6 +25,9 @@ public  class User {
 
     @Enumerated(EnumType.STRING)
     private UserRole role;
+    @ManyToOne
+    @JoinColumn(name = "library_id",nullable = false)
+    private Library library;
 
     public void setUsername(String username) {
         if(username==null){

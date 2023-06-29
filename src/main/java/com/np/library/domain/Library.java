@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "library")
 @Builder
@@ -20,6 +22,9 @@ public class Library {
     private String address;
     private String city;
     private String country;
+    @Transient
+    @OneToMany(mappedBy = "library")
+    private Set<User> users;
 
 
     public void setName(String name) {
