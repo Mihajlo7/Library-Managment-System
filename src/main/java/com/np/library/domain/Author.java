@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "author")
 @Builder
@@ -19,6 +21,14 @@ public class Author {
     private String name;
     private String biography;
 
+    @ManyToMany
+    @JoinTable(
+            name = "author_books",
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id")
+    )
+    private Set<Book> books;
+
 
     public void setName(String name) {
         if(name==null){
@@ -31,12 +41,12 @@ public class Author {
     }
 
     public void setBiography(String biography) {
-        if(biography==null){
-            throw new IllegalArgumentException("The biography must not have a null value");
-        }
-        if(biography.equals("")){
-            throw new IllegalArgumentException("The biography must not be a empty value");
-        }
+//        if(biography==null){
+//            throw new IllegalArgumentException("The biography must not have a null value");
+//        }
+//        if(biography.equals("")){
+//            throw new IllegalArgumentException("The biography must not be a empty value");
+//        }
         this.biography = biography;
     }
 }
