@@ -28,6 +28,8 @@ public class Book {
 
     @ManyToMany(mappedBy = "books")
     private Set<Author> authors;
+    @OneToMany(mappedBy = "book")
+    private Set<BookItem> bookItems;
 
     public void setIsbn(String isbn) {
         if(isbn.length()<3 || isbn.length()>12){
