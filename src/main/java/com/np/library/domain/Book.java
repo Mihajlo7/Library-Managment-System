@@ -23,7 +23,7 @@ public class Book {
     private String language;
     @Column(name = "number_of_pages")
     private Integer numberOfPages;
-    @Column(name = "number_of_pages")
+    @Column(name = "number_of_items")
     private Integer numberOfItems;
 
     @ManyToMany(mappedBy = "books")
