@@ -3,6 +3,7 @@ package com.np.library.domain;
 import com.np.library.domain.enumeration.AccountStatus;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +11,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "library_user")
@@ -24,6 +26,8 @@ public class LibraryUser extends User {
     @Column(name = "time_joined")
     private LocalDate timeJoined;
     private String email;
+    @OneToMany(mappedBy = "libraryUser")
+    private Set<Loan> loans;
 
     public void setName(String name) {
         if(name==null){

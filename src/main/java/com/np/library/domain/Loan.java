@@ -1,10 +1,7 @@
 package com.np.library.domain;
 
 import com.np.library.domain.enumeration.LoanStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -25,6 +22,12 @@ public class Loan {
     private LocalDate fromDate;
     private LocalDate toDate;
     private LoanStatus status;
+    @ManyToOne
+    @JoinColumn(name = "library_user_id",nullable = false)
+    private LibraryUser libraryUser;
+    @ManyToOne
+    @JoinColumn(name = "librarian_id",nullable = false)
+    private Librarian librarian;
 
     public void setFromDate(LocalDate fromDate) {
         if(fromDate==null){
