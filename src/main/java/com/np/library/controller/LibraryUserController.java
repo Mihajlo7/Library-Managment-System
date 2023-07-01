@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/library-user")
 public class LibraryUserController {
-    @Autowired
-    private LibraryUserService libraryUserService;
+//    @Autowired
+//    private LibraryUserService libraryUserService;
 }

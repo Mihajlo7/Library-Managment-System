@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/book-item")
 public class BookItemController {
-    @Autowired
-    private BookItemService bookItemService;
+//    @Autowired
+//    private BookItemService bookItemService;
 }

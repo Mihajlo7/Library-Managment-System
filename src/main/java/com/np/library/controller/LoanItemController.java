@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/loan-item")
 public class LoanItemController {
-    @Autowired
-    private LoanItemService loanItemService;
+//    @Autowired
+//    private LoanItemService loanItemService;
 }
