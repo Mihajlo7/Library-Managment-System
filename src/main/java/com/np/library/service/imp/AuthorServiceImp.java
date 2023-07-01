@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AuthorServiceImp implements AuthorService {
@@ -17,9 +18,10 @@ public class AuthorServiceImp implements AuthorService {
         if(author==null){
             throw new IllegalArgumentException("Author must not be null");
         }
-//        if(authorRepository.existsById(author.getId())){
-//            throw new IllegalArgumentException("This author exist in database");
-//        }
+        Optional<Author> optionalAuthor=authorRepository.findByNameAndBiography(author.getName(),author.getBiography());
+        if(optionalAuthor.isPresent()){
+            throw new RuntimeException("These author exist");
+        }
         authorRepository.save(author);
 
     }
