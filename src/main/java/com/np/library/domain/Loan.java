@@ -31,6 +31,7 @@ public class Loan {
     @ManyToOne
     @JoinColumn(name = "librarian_id",nullable = false)
     private Librarian librarian;
+    @Transient
     @OneToMany(mappedBy = "loan")
     private Set<LoanItem> loanItems;
 

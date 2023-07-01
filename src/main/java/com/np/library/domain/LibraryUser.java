@@ -1,10 +1,7 @@
 package com.np.library.domain;
 
 import com.np.library.domain.enumeration.AccountStatus;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,6 +23,7 @@ public class LibraryUser extends User {
     @Column(name = "time_joined")
     private LocalDate timeJoined;
     private String email;
+    @Transient
     @OneToMany(mappedBy = "libraryUser")
     private Set<Loan> loans;
 

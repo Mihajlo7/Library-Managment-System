@@ -93,6 +93,10 @@ public class Book {
         this.numberOfItems = numberOfItems;
     }
 
+    public void setAuthors(Set<Author> authors) {
+        this.authors = authors;
+    }
+
     @Override
     public String toString() {
         return "Book{" +

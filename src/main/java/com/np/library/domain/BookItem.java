@@ -35,6 +35,7 @@ public class BookItem {
     @ManyToOne
     @JoinColumn(name = "library_id",nullable = false)
     private Library library;
+    @Transient
     @OneToMany(mappedBy = "bookItem")
     private Set<LoanItem> loanItems;
 
@@ -60,5 +61,13 @@ public class BookItem {
             throw new IllegalArgumentException("The purchaseDate must be before today");
         }
         this.purchaseDate = purchaseDate;
+    }
+
+    public void setBook(Book book) {
+        this.book = book;
+    }
+
+    public void setLibrary(Library library) {
+        this.library = library;
     }
 }
