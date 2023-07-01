@@ -1,5 +1,6 @@
 package com.np.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,6 +33,7 @@ public class Book {
             joinColumns = @JoinColumn(name = "author_id"),
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     private Set<Author> authors;
+    @JsonIgnore
     @Transient
     @OneToMany(mappedBy = "book")
     private Set<BookItem> bookItems;
