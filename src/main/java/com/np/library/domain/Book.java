@@ -26,7 +26,11 @@ public class Book {
     @Column(name = "number_of_items")
     private Integer numberOfItems;
 
-    @ManyToMany(mappedBy = "books")
+    @ManyToMany
+    @JoinTable(
+            name = "author_books",
+            joinColumns = @JoinColumn(name = "author_id"),
+            inverseJoinColumns = @JoinColumn(name = "book_id"))
     private Set<Author> authors;
     @Transient
     @OneToMany(mappedBy = "book")

@@ -21,12 +21,7 @@ public class Author {
     private String name;
     private String biography;
     @Transient
-    @ManyToMany
-    @JoinTable(
-            name = "author_books",
-            joinColumns = @JoinColumn(name = "author_id"),
-            inverseJoinColumns = @JoinColumn(name = "book_id")
-    )
+    @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
 
 
