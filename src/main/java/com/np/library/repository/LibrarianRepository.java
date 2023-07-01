@@ -4,5 +4,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface Loan extends JpaRepository<Loan,Long> {
+public interface LibrarianRepository extends JpaRepository<LibrarianRepository,Long> {
 }
