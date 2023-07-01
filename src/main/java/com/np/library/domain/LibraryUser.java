@@ -19,6 +19,7 @@ public class LibraryUser extends User {
     private String name;
     private String surname;
     private Integer age;
+    @Enumerated(EnumType.STRING)
     private AccountStatus status;
     @Column(name = "time_joined")
     private LocalDate timeJoined;

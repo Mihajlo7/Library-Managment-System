@@ -8,5 +8,5 @@ public interface LibraryUserService {
     public void saveLibraryUser(LibraryUser libraryUser);
     public List<LibraryUser> getLibraryUsers();
     public LibraryUser getLibraryUserById(Long id);
-    public String changePassword(Long id);
+    public String changePassword(String newPassword,Long id);
 }
