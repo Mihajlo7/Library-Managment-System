@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "book_item")
@@ -34,6 +35,8 @@ public class BookItem {
     @ManyToOne
     @JoinColumn(name = "library_id",nullable = false)
     private Library library;
+    @OneToMany(mappedBy = "bookItem")
+    private Set<LoanItem> loanItems;
 
     public void setUsageStatus(UsageStatus usageStatus) {
         if(usageStatus==null){

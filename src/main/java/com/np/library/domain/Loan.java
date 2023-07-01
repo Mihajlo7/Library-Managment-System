@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 @Entity
 @Table(name = "loan")
@@ -19,7 +20,9 @@ public class Loan {
     @Id
     @GeneratedValue
     private Long id;
+    @Column(name = "from_date")
     private LocalDate fromDate;
+    @Column(name = "to_date")
     private LocalDate toDate;
     private LoanStatus status;
     @ManyToOne
@@ -28,6 +31,8 @@ public class Loan {
     @ManyToOne
     @JoinColumn(name = "librarian_id",nullable = false)
     private Librarian librarian;
+    @OneToMany(mappedBy = "loan")
+    private Set<LoanItem> loanItems;
 
     public void setFromDate(LocalDate fromDate) {
         if(fromDate==null){
