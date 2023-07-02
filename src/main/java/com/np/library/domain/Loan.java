@@ -1,5 +1,6 @@
 package com.np.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.np.library.domain.enumeration.LoanStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

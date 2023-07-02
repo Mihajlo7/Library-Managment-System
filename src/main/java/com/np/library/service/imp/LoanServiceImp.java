@@ -60,16 +60,6 @@ public class LoanServiceImp implements LoanService {
         loanItemRepository.saveAll(newLoanItems);
 
     }
-
-    @Override
-    public List<Loan> getLoansByLibraryUsers(Long id) {
-        Optional<List<Loan>> optionalLoans=loanRepository.findByLibraryUserId(id);
-        if(!optionalLoans.isPresent()){
-            throw new RuntimeException("The library with this id does not exist");
-        }
-        return optionalLoans.get();
-    }
-
     @Override
     public void returnLoan(Long id) {
         Optional<Loan> loanOptional=loanRepository.findById(id);
@@ -78,8 +68,9 @@ public class LoanServiceImp implements LoanService {
         }
         Loan loan=loanOptional.get();
         loan.setStatus(LoanStatus.COMPLETED);
-        loanRepository.save(loan);
-        Set<LoanItem> loanItems=loan.getLoanItems();
+        //loanRepository.save(loan);
+        //Set<LoanItem> loanItems=loan.getLoanItems();
+        List<LoanItem>loanItems=loanItemRepository.findByLoanId(loan.getId());
         for(LoanItem loanItem:loanItems){
             loanItem.setStatus(LoanItemStatus.RETURNED);
             loanItem.setReturnDate(LocalDate.now());
@@ -87,6 +78,7 @@ public class LoanServiceImp implements LoanService {
             bookItem.setBookStatus(BookStatus.OPEN);
         }
         loanItemRepository.saveAll(loanItems);
+        loanRepository.save(loan);
 
     }
 }

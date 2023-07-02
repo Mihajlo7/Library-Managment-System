@@ -1,5 +1,6 @@
 package com.np.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,7 +21,7 @@ public class Author {
     private Long id;
     private String name;
     private String biography;
-    @Transient
+    @JsonIgnore
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
 
