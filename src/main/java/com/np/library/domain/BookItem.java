@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -74,5 +75,30 @@ public class BookItem {
 
     public void setLoanItems(Set<LoanItem> loanItems) {
         this.loanItems = loanItems;
+    }
+
+    @Override
+    public String toString() {
+        return "BookItem{" +
+                "id=" + id +
+                ", usageStatus=" + usageStatus +
+                ", bookStatus=" + bookStatus +
+                ", purchaseDate=" + purchaseDate +
+                ", book=" + book +
+                ", library=" + library +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BookItem bookItem = (BookItem) o;
+        return Objects.equals(id, bookItem.id) && usageStatus == bookItem.usageStatus && bookStatus == bookItem.bookStatus && purchaseDate.equals(bookItem.purchaseDate) && book.equals(bookItem.book) && library.equals(bookItem.library);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, usageStatus, bookStatus, purchaseDate, book, library);
     }
 }

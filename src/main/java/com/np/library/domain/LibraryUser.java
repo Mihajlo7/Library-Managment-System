@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -94,5 +95,18 @@ public class LibraryUser extends User {
 
     public void setLoans(Set<Loan> loans) {
         this.loans = loans;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LibraryUser user = (LibraryUser) o;
+        return Objects.equals(name, user.name) && Objects.equals(surname, user.surname) && Objects.equals(age, user.age) && status == user.status && Objects.equals(timeJoined, user.timeJoined) && Objects.equals(email, user.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, age, status, timeJoined, email);
     }
 }

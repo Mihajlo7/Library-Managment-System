@@ -7,6 +7,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -87,5 +88,18 @@ public class Library {
 
     public void setBookItems(Set<BookItem> bookItems) {
         this.bookItems = bookItems;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Library library = (Library) o;
+        return id.equals(library.id) && Objects.equals(name, library.name) && Objects.equals(address, library.address) && Objects.equals(city, library.city) && Objects.equals(country, library.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, address, city, country);
     }
 }

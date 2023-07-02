@@ -9,6 +9,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -70,5 +71,30 @@ public class Loan {
 
     public void setLibrarian(Librarian librarian) {
         this.librarian = librarian;
+    }
+
+    @Override
+    public String toString() {
+        return "Loan{" +
+                "id=" + id +
+                ", fromDate=" + fromDate +
+                ", toDate=" + toDate +
+                ", status=" + status +
+                ", libraryUser=" + libraryUser +
+                ", librarian=" + librarian +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Loan loan = (Loan) o;
+        return id.equals(loan.id) && Objects.equals(fromDate, loan.fromDate) && Objects.equals(toDate, loan.toDate) && status == loan.status && Objects.equals(libraryUser, loan.libraryUser) && Objects.equals(librarian, loan.librarian);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, fromDate, toDate, status, libraryUser, librarian);
     }
 }

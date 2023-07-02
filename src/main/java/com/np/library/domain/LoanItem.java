@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "library_item")
@@ -57,5 +58,30 @@ public class LoanItem {
 
     public void setLoan(Loan loan) {
         this.loan = loan;
+    }
+
+    @Override
+    public String toString() {
+        return "LoanItem{" +
+                "id=" + id +
+                ", returnDate=" + returnDate +
+                ", description='" + description + '\'' +
+                ", status=" + status +
+                ", loan=" + loan +
+                ", bookItem=" + bookItem +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LoanItem loanItem = (LoanItem) o;
+        return id.equals(loanItem.id) && Objects.equals(returnDate, loanItem.returnDate) && Objects.equals(description, loanItem.description) && status == loanItem.status && Objects.equals(loan, loanItem.loan) && Objects.equals(bookItem, loanItem.bookItem);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, returnDate, description, status, loan, bookItem);
     }
 }

@@ -8,6 +8,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "app_user")
 @Builder
@@ -58,5 +60,29 @@ public  class User {
 
     public void setLibrary(Library library) {
         this.library = library;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", id=" + id +
+                ", role=" + role +
+                ", library=" + library +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username) && Objects.equals(password, user.password) && id.equals(user.id) && role == user.role && Objects.equals(library, user.library);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password, id, role, library);
     }
 }

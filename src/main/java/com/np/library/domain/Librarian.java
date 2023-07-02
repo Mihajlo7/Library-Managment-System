@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -51,5 +52,18 @@ public class Librarian extends User {
             throw new IllegalArgumentException("The from date must be before today");
         }
         this.fromDate = fromDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Librarian librarian = (Librarian) o;
+        return name.equals(librarian.name) && surname.equals(librarian.surname) && fromDate.equals(librarian.fromDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, surname, fromDate);
     }
 }
