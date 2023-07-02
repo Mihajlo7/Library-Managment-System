@@ -191,7 +191,6 @@ class BookTest {
             "11111,Naslov1,11111,Naslov,false"
 
     })
-    @Test
     void testEquals(String isbn1,String naslov1,
                     String isbn2,String naslov2,boolean areEqual) {
         book=new Book().builder()
