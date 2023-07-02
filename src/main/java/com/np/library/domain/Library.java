@@ -1,5 +1,6 @@
 package com.np.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,10 +23,10 @@ public class Library {
     private String address;
     private String city;
     private String country;
-    @Transient
+    @JsonIgnore
     @OneToMany(mappedBy = "library")
     private Set<User> users;
-    @Transient
+    @JsonIgnore
     @OneToMany(mappedBy = "library")
     private Set<BookItem> bookItems;
 

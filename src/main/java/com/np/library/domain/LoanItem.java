@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "library_item")
+@Table(name = "loan_item")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

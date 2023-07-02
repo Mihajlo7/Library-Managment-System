@@ -10,10 +10,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "author")
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Builder
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

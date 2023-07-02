@@ -55,4 +55,8 @@ public  class User {
         }
         this.role = role;
     }
+
+    public void setLibrary(Library library) {
+        this.library = library;
+    }
 }
