@@ -1,5 +1,6 @@
 package com.np.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.np.library.domain.enumeration.LoanItemStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "library_admin")
+@Table(name = "library_item")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -20,6 +21,7 @@ public class LoanItem {
     @Column(name = "return_date")
     private LocalDate returnDate;
     private String description;
+    @Enumerated(EnumType.STRING)
     private LoanItemStatus status;
     @ManyToOne
     @JoinColumn(name = "loan_id",nullable = false)
@@ -50,5 +52,9 @@ public class LoanItem {
 
     public void setStatus(LoanItemStatus status) {
         this.status = status;
+    }
+
+    public void setLoan(Loan loan) {
+        this.loan = loan;
     }
 }

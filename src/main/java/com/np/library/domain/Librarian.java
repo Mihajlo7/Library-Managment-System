@@ -18,7 +18,6 @@ public class Librarian extends User {
     private String surname;
     @Column(name = "from_date")
     private LocalDate fromDate;
-    @Transient
     @OneToMany(mappedBy = "librarian")
     private Set<Loan> loans;
 

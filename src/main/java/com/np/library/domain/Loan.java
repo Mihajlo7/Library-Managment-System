@@ -24,6 +24,7 @@ public class Loan {
     private LocalDate fromDate;
     @Column(name = "to_date")
     private LocalDate toDate;
+    @Enumerated(EnumType.STRING)
     private LoanStatus status;
     @ManyToOne
     @JoinColumn(name = "library_user_id",nullable = false)
@@ -57,5 +58,9 @@ public class Loan {
             throw new IllegalArgumentException("Status must not be null");
         }
         this.status = status;
+    }
+
+    public void setLoanItems(Set<LoanItem> loanItems) {
+        this.loanItems = loanItems;
     }
 }
