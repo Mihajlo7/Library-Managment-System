@@ -77,11 +77,15 @@ public class LoanItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         LoanItem loanItem = (LoanItem) o;
-        return id.equals(loanItem.id) && Objects.equals(returnDate, loanItem.returnDate) && Objects.equals(description, loanItem.description) && status == loanItem.status && Objects.equals(loan, loanItem.loan) && Objects.equals(bookItem, loanItem.bookItem);
+        return id.equals(loanItem.id) && Objects.equals(loan, loanItem.loan);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, returnDate, description, status, loan, bookItem);
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
