@@ -16,6 +16,7 @@ import java.util.Set;
 @Table(name = "library_user")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Getter
 public class LibraryUser extends User {
     private String name;
@@ -73,10 +74,10 @@ public class LibraryUser extends User {
 
     public void setEmail(String email) {
         if(email==null){
-            throw new IllegalArgumentException("The name must not have a null value");
+            throw new IllegalArgumentException("The email must not have a null value");
         }
         if(email.equals("")){
-            throw new IllegalArgumentException("The name must not be a empty value");
+            throw new IllegalArgumentException("The email must not be a empty value");
         }
         this.email = email;
     }
@@ -96,6 +97,7 @@ public class LibraryUser extends User {
     public void setLoans(Set<Loan> loans) {
         this.loans = loans;
     }
+
 
     @Override
     public boolean equals(Object o) {
