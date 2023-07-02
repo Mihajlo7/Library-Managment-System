@@ -19,10 +19,6 @@ public class LoanController {
         loanService.createLoan(loan);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping("/get/user/{id}")
-    public ResponseEntity<List<Loan>> getLoansByUsers(@PathVariable Long id){
-        return ResponseEntity.ok(loanService.getLoansByLibraryUsers(id));
-    }
     @GetMapping("/retunr/{id}")
     public ResponseEntity<Void> returnLoan(@PathVariable Long id){
         loanService.returnLoan(id);
