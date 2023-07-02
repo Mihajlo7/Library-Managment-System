@@ -39,6 +39,9 @@ public class Book {
     private Set<BookItem> bookItems;
 
     public void setIsbn(String isbn) {
+        if(isbn==null){
+            throw new IllegalArgumentException("The isbn must not be a null");
+        }
         if(isbn.length()<3 || isbn.length()>12){
             throw new IllegalArgumentException("Isbn must have between 3 and 12 numbers");
         }
@@ -93,9 +96,7 @@ public class Book {
     }
 
     public void setNumberOfItems(Integer numberOfItems) {
-        if(numberOfPages<=0){
-            throw new IllegalArgumentException("Book must have 1 instance");
-        }
+
         this.numberOfItems = numberOfItems;
     }
 
