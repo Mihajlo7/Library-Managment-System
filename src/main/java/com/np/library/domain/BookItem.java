@@ -94,7 +94,8 @@ public class BookItem {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BookItem bookItem = (BookItem) o;
-        return Objects.equals(id, bookItem.id) && usageStatus == bookItem.usageStatus && bookStatus == bookItem.bookStatus&&Objects.equals(purchaseDate,bookItem.getPurchaseDate());
+        return Objects.equals(id, bookItem.id) && usageStatus == bookItem.usageStatus &&
+                bookStatus == bookItem.bookStatus&&Objects.equals(purchaseDate,bookItem.getPurchaseDate()) && book.equals(bookItem.getBook());
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.np.library.domain;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Builder
 public class Librarian extends User {
     private String name;
     private String surname;
@@ -65,5 +67,14 @@ public class Librarian extends User {
     @Override
     public int hashCode() {
         return Objects.hash(name, surname, fromDate);
+    }
+
+    @Override
+    public String toString() {
+        return "Librarian{" +
+                "name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", fromDate=" + fromDate +
+                '}';
     }
 }
