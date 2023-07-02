@@ -1,5 +1,6 @@
 package com.np.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.np.library.domain.enumeration.BookStatus;
 import com.np.library.domain.enumeration.UsageStatus;
 import jakarta.persistence.*;
@@ -35,7 +36,7 @@ public class BookItem {
     @ManyToOne
     @JoinColumn(name = "library_id",nullable = false)
     private Library library;
-    @Transient
+    @JsonIgnore
     @OneToMany(mappedBy = "bookItem")
     private Set<LoanItem> loanItems;
 
@@ -69,5 +70,9 @@ public class BookItem {
 
     public void setLibrary(Library library) {
         this.library = library;
+    }
+
+    public void setLoanItems(Set<LoanItem> loanItems) {
+        this.loanItems = loanItems;
     }
 }

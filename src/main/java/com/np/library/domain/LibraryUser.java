@@ -1,5 +1,6 @@
 package com.np.library.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.np.library.domain.enumeration.AccountStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -24,7 +25,7 @@ public class LibraryUser extends User {
     @Column(name = "time_joined")
     private LocalDate timeJoined;
     private String email;
-    @Transient
+    @JsonIgnore
     @OneToMany(mappedBy = "libraryUser")
     private Set<Loan> loans;
 
@@ -89,5 +90,9 @@ public class LibraryUser extends User {
                 ", timeJoined=" + timeJoined +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    public void setLoans(Set<Loan> loans) {
+        this.loans = loans;
     }
 }

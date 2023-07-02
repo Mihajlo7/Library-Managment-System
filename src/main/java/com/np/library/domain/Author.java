@@ -45,4 +45,8 @@ public class Author {
 //        }
         this.biography = biography;
     }
+
+    public void setBooks(Set<Book> books) {
+        this.books = books;
+    }
 }

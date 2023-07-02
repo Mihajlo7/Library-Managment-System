@@ -34,7 +34,6 @@ public class Book {
             inverseJoinColumns = @JoinColumn(name = "book_id"))
     private Set<Author> authors;
     @JsonIgnore
-    @Transient
     @OneToMany(mappedBy = "book")
     private Set<BookItem> bookItems;
 
@@ -114,5 +113,9 @@ public class Book {
                 ", numberOfPages=" + numberOfPages +
                 ", numberOfItems=" + numberOfItems +
                 '}';
+    }
+
+    public void setBookItems(Set<BookItem> bookItems) {
+        this.bookItems = bookItems;
     }
 }

@@ -23,6 +23,7 @@ public class LoanItem {
     private String description;
     @Enumerated(EnumType.STRING)
     private LoanItemStatus status;
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "loan_id",nullable = false)
     private Loan loan;

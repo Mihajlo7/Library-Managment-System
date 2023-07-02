@@ -80,4 +80,12 @@ public class Library {
                 ", country='" + country + '\'' +
                 '}';
     }
+
+    public void setUsers(Set<User> users) {
+        this.users = users;
+    }
+
+    public void setBookItems(Set<BookItem> bookItems) {
+        this.bookItems = bookItems;
+    }
 }
