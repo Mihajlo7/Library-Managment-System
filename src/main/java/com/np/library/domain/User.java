@@ -3,10 +3,7 @@ package com.np.library.domain;
 
 import com.np.library.domain.enumeration.UserRole;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Objects;
 
@@ -22,6 +19,7 @@ public  class User {
     private String password;
     @Id
     @GeneratedValue
+    @Setter
     private Long id;
 
     @Enumerated(EnumType.STRING)

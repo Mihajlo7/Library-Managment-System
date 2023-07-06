@@ -2,10 +2,7 @@ package com.np.library.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Objects;
 import java.util.Set;
@@ -19,6 +16,7 @@ import java.util.Set;
 public class Library {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Setter
     private Long id;
     private String name;
     private String address;

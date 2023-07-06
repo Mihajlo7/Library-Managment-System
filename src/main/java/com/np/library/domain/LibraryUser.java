@@ -2,6 +2,7 @@ package com.np.library.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.np.library.domain.enumeration.AccountStatus;
+import com.np.library.domain.enumeration.UserRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,6 +20,18 @@ import java.util.Set;
 @Builder
 @Getter
 public class LibraryUser extends User {
+
+    public LibraryUser(String username, String password, Long id, UserRole role, Library library, String name, String surname, Integer age, AccountStatus status, LocalDate timeJoined, String email, Set<Loan> loans) {
+        super(username, password, id, role, library);
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+        this.status = status;
+        this.timeJoined = timeJoined;
+        this.email = email;
+        this.loans = loans;
+    }
+
     private String name;
     private String surname;
     private Integer age;
