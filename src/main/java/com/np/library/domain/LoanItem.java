@@ -60,6 +60,10 @@ public class LoanItem {
         this.loan = loan;
     }
 
+    public void setBookItem(BookItem bookItem) {
+        this.bookItem = bookItem;
+    }
+
     @Override
     public String toString() {
         return "LoanItem{" +
