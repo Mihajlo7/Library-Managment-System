@@ -31,7 +31,8 @@ class AuthorServiceImpTest {
         MockitoAnnotations.openMocks(this);
     }
 
-    public void testSaveAuthorValidAuthorSuccess() {
+    @Test
+    public void saveAuthorValidAuthorSuccess() {
         Author author = new Author("Petar Petrovic", "Biografija");
         when(authorRepository.findByNameAndBiography(author.getName(), author.getBiography()))
                 .thenReturn(Optional.empty());

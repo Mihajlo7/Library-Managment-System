@@ -20,6 +20,14 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 public class BookItem {
+
+    public BookItem(UsageStatus usageStatus, BookStatus bookStatus, LocalDate purchaseDate, Book book) {
+        this.usageStatus = usageStatus;
+        this.bookStatus = bookStatus;
+        this.purchaseDate = purchaseDate;
+        this.book = book;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
