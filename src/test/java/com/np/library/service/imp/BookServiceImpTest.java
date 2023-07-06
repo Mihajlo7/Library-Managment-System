@@ -5,6 +5,7 @@ import com.np.library.domain.Book;
 import com.np.library.repository.AuthorRepository;
 import com.np.library.repository.BookItemRepository;
 import com.np.library.repository.BookRepository;
+import com.np.library.service.AuthorService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,6 +28,8 @@ class BookServiceImpTest {
 
     @Mock
     private BookRepository bookRepository;
+    @Mock
+    private AuthorService authorService;
 
     @InjectMocks
     private BookServiceImp bookService;
@@ -72,28 +75,22 @@ class BookServiceImpTest {
         book.setTitle("Naslov 1");
         book.setLanguage("Srpski");
         book.setPublisher("Laguna");
-        Author author1 = new Author();
-        author1.setName("Petar Petrovic 1");
-        author1.setBiography("Biografija 1");
-        Author author2 = new Author();
-        author2.setName("Mika Mikic 1");
-        author2.setBiography("Biografija 2");
+        Author author = new Author();
+        author.setName("Petar Petrovic 1");
+        author.setBiography("Biografija 1");
         Set<Author> authors = new HashSet<>();
-        authors.add(author1);
-        authors.add(author2);
+        authors.add(author);
         book.setAuthors(authors);
 
         when(bookRepository.findById(book.getIsbn())).thenReturn(Optional.empty());
-        when(authorRepository.findByNameAndBiography(author1.getName(), author1.getBiography()))
-                .thenReturn(Optional.empty());
-        when(authorRepository.findByNameAndBiography(author2.getName(), author2.getBiography()))
-                .thenReturn(Optional.empty());
+        when(authorService.existByNameAndBiography(author)).thenReturn(false);
         when(bookRepository.save(book)).thenReturn(book);
+        doNothing().when(authorService).saveAuthor(author);
 
         bookService.saveBook(book);
         verify(bookRepository, times(1)).save(book);
-        verify(authorRepository, times(1)).save(author1);
-        verify(authorRepository, times(1)).save(author2);
+        verify(authorService, times(1)).saveAuthor(author);
+
 
     }
 

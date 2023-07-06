@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 @Service
@@ -34,5 +35,19 @@ public class AuthorServiceImp implements AuthorService {
         }
 
         return authors;
+    }
+
+    @Override
+    public Author findByNameAndBiography(Author a) throws NoSuchElementException {
+        Optional<Author> optionalAuthor=authorRepository.findByNameAndBiography(a.getName(),a.getBiography());
+        if(!optionalAuthor.isPresent()){
+            throw new NoSuchElementException("Author with this name and biography does not exist");
+        }
+        return optionalAuthor.get();
+    }
+
+    @Override
+    public boolean existByNameAndBiography(Author a) {
+        return authorRepository.existsByNameAndBiography(a.getName(),a.getBiography());
     }
 }

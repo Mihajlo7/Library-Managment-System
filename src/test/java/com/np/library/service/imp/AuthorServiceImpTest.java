@@ -13,6 +13,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -83,4 +84,58 @@ class AuthorServiceImpTest {
         });
     }
 
+
+    @Test
+    public void findByNameAndBiographySuccess() {
+        Author author = new Author();
+        author.setName("Petar Petrovic");
+        author.setBiography("Biography");
+
+        when(authorRepository.findByNameAndBiography(author.getName(), author.getBiography())).thenReturn(Optional.of(author));
+
+        Author result = authorService.findByNameAndBiography(author);
+
+        Assertions.assertEquals(author, result);
+    }
+
+    @Test
+    public void findByNameAndBiographyNonExistingAuthorExceptionThrown() {
+
+        Author author = new Author();
+        author.setName("Petar Petrovic");
+        author.setBiography("Biography");
+
+        when(authorRepository.findByNameAndBiography(author.getName(), author.getBiography())).thenReturn(Optional.empty());
+
+        Assertions.assertThrows(NoSuchElementException.class, () -> {
+            authorService.findByNameAndBiography(author);
+        });
+    }
+
+    @Test
+    public void existByNameAndBiographyTrue() {
+
+        Author author = new Author();
+        author.setName("Petar Petrovic");
+        author.setBiography("Biography");
+
+        when(authorRepository.existsByNameAndBiography(author.getName(), author.getBiography())).thenReturn(true);
+
+        boolean result = authorService.existByNameAndBiography(author);
+
+        Assertions.assertTrue(result);
+    }
+
+    @Test
+    public void existByNameAndBiographyFalse() {
+        Author author = new Author();
+        author.setName("Petar Petrovic");
+        author.setBiography("Biography");
+
+        when(authorRepository.existsByNameAndBiography(author.getName(), author.getBiography())).thenReturn(false);
+
+        boolean result = authorService.existByNameAndBiography(author);
+
+        Assertions.assertFalse(result);
+    }
 }

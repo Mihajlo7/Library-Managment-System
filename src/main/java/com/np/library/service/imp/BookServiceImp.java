@@ -4,11 +4,13 @@ import com.np.library.domain.Author;
 import com.np.library.domain.Book;
 import com.np.library.repository.AuthorRepository;
 import com.np.library.repository.BookRepository;
+import com.np.library.service.AuthorService;
 import com.np.library.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
 
@@ -18,6 +20,8 @@ public class BookServiceImp implements BookService {
     private BookRepository bookRepository;
     @Autowired
     private AuthorRepository authorRepository;
+    @Autowired
+    private AuthorService authorService;
     @Override
     public void saveBook(Book book) {
         if(book==null){
@@ -30,9 +34,8 @@ public class BookServiceImp implements BookService {
         if(book.getAuthors()!=null){
             Set<Author> authors=book.getAuthors();
             for(Author a:authors){
-                Optional<Author>optionalAuthor=authorRepository.findByNameAndBiography(a.getName(),a.getBiography());
-                if(!optionalAuthor.isPresent()){
-                    authorRepository.save(a);
+                if(!authorService.existByNameAndBiography(a)){
+                    authorService.saveAuthor(a);
                 }
             }
         }
