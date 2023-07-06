@@ -17,6 +17,17 @@ import java.util.Set;
 @AllArgsConstructor
 @Getter
 public class Book {
+    public Book(String isbn, String title, String subject, String publisher, String language, Integer numberOfPages, Integer numberOfItems, Set<Author> authors) {
+        this.isbn = isbn;
+        this.title = title;
+        this.subject = subject;
+        this.publisher = publisher;
+        this.language = language;
+        this.numberOfPages = numberOfPages;
+        this.numberOfItems = numberOfItems;
+        this.authors = authors;
+    }
+
     @Id
     private String isbn;
     private String title;
