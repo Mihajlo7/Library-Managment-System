@@ -26,6 +26,10 @@ public class Author {
     @ManyToMany(mappedBy = "authors")
     private Set<Book> books;
 
+    public Author(String name, String biography) {
+        this.name = name;
+        this.biography = biography;
+    }
 
     public void setName(String name) {
         if(name==null){
