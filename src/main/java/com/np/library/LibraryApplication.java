@@ -1,6 +1,5 @@
 package com.np.library;
 
-import com.np.library.seed.SeedService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -10,8 +9,7 @@ import org.springframework.context.event.EventListener;
 
 @SpringBootApplication
 public class LibraryApplication {
-	@Autowired
-	private SeedService seedService;
+
 	@Value("${seed.enabled}")
 	private boolean enabled;
 
@@ -20,8 +18,8 @@ public class LibraryApplication {
 	}
 	@EventListener(ApplicationReadyEvent.class)
 	public void setUp(){
-		if(enabled)
-			seedService.init();
+
+			//seedService.init();
 	}
 
 }
