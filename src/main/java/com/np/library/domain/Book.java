@@ -28,6 +28,10 @@ public class Book {
         this.authors = authors;
     }
 
+    public Book(String isbn) {
+        this.isbn = isbn;
+    }
+
     @Id
     private String isbn;
     private String title;
