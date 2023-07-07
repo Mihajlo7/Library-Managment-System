@@ -31,6 +31,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.Matchers.is;
@@ -70,6 +71,19 @@ class AuthorControllerTest {
 
         mockMvc.perform(get("/author/get-all"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$[0].name",is("Autor 1")));
+                .andExpect(jsonPath("$[0].name",is("Autor 1")))
+                .andExpect(jsonPath("$[0].biography",is("Biografija 1")))
+                .andExpect(jsonPath("$[1].name",is("Autor 2")))
+                .andExpect(jsonPath("$[1].biography",is("Biografija 2")));
+    }
+
+    @Test
+    public void saveAuthorSuccess() throws Exception{
+        Author author= new Author("Autor 1","Biografija 1");
+        authorService.saveAuthor(author);
+        mockMvc.perform(post("/author/add")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(author)))
+                .andExpect(MockMvcResultMatchers.status().isNoContent());
     }
 }
