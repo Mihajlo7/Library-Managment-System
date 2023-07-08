@@ -88,7 +88,8 @@ class LibraryUserControllerTest {
 
         when(libraryUserService.getLibraryUserById(userId)).thenReturn(libraryUser);
 
-        mockMvc.perform(get("/library-user/get/{id}", userId));
+        mockMvc.perform(get("/library-user/get/{id}", userId))
+                .andExpect(status().isOk());
     }
 
     @Test
