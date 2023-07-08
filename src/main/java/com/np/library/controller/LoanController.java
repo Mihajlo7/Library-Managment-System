@@ -7,18 +7,33 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+/**
+ * REST kontroler koji obrađuje zahteve vezane za iznamljivanja.
+ */
 @RestController
 @RequestMapping("/loan")
 public class LoanController {
+    /**
+     * Instanca servisa za rad sa zaduzivanjima
+     */
     @Autowired
     private LoanService loanService;
-
+    /**
+     * Endpoint za kreiranje nove pozajmice.
+     * @param loan pozajmica koja se kreira
+     * @return odgovor sa statusom "No Content" ako je kreiranje uspesno
+     */
     @PostMapping("/add")
     public ResponseEntity<Void> createLoan(@RequestBody Loan loan){
         loanService.createLoan(loan);
         return ResponseEntity.noContent().build();
     }
+    /**
+     * Endpoint za vraćanje pozajmice na osnovu ID-ja.
+     * @param id ID pozajmice koja se vraća
+     * @return odgovor sa statusom "No Content" ako je vracanje uspesno
+     */
+
     @GetMapping("/retunr/{id}")
     public ResponseEntity<Void> returnLoan(@PathVariable Long id){
         loanService.returnLoan(id);
