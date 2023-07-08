@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+/**
+ * Implementacija servisa za rad sa primercima knjiga
+ */
 @Service
 public class BookItemServiceImp implements BookItemService {
     @Autowired

@@ -10,6 +10,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+/**
+ * Implementacija servisa za rad sa autorima
+ */
 @Service
 public class AuthorServiceImp implements AuthorService {
     @Autowired

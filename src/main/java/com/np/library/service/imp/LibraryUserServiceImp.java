@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Implementacija servisa za rad sa clanovima biblioteke
+ */
 @Service
 public class LibraryUserServiceImp implements LibraryUserService {
     @Autowired

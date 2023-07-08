@@ -21,7 +21,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
-
+/**
+ * Implementacija servisa za rad sa zaduzenjima
+ */
 @Service
 public class LoanServiceImp implements LoanService {
     @Autowired
