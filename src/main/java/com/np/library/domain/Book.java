@@ -11,7 +11,7 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * @author Mihajlo Pavlovic
+ * @author Mihajlo
  * klasa predstavlja knjigu
  */
 @Entity
