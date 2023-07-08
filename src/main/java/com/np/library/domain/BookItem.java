@@ -28,6 +28,15 @@ public class BookItem {
         this.book = book;
     }
 
+    public BookItem(Long id,UsageStatus usageStatus, BookStatus bookStatus, LocalDate purchaseDate, Book book, Library library) {
+        this.usageStatus = usageStatus;
+        this.bookStatus = bookStatus;
+        this.purchaseDate = purchaseDate;
+        this.book = book;
+        this.library = library;
+        this.id=id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

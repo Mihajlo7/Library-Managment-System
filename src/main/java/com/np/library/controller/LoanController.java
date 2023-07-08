@@ -19,7 +19,7 @@ public class LoanController {
         loanService.createLoan(loan);
         return ResponseEntity.noContent().build();
     }
-    @GetMapping("/retunr/{id}")
+    @GetMapping("/return/{id}")
     public ResponseEntity<Void> returnLoan(@PathVariable Long id){
         loanService.returnLoan(id);
         return ResponseEntity.noContent().build();

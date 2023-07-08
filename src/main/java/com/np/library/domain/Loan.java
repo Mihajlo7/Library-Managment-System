@@ -35,6 +35,15 @@ public class Loan {
     @OneToMany(mappedBy = "loan")
     private Set<LoanItem> loanItems;
 
+    public Loan(LocalDate fromDate, LocalDate toDate, LoanStatus status, LibraryUser libraryUser, Librarian librarian, Set<LoanItem> loanItems) {
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.status = status;
+        this.libraryUser = libraryUser;
+        this.librarian = librarian;
+        this.loanItems = loanItems;
+    }
+
     public void setFromDate(LocalDate fromDate) {
         if(fromDate==null){
             throw new IllegalArgumentException("The from date must not be a null value");
