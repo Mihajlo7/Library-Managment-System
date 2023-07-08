@@ -116,6 +116,10 @@ public class Author {
         return id.equals(author.id) && Objects.equals(name, author.name) && Objects.equals(biography, author.biography);
     }
 
+    /**
+     * Vraca hash code vrednost autora
+     * @return int reprezentacija na osnovu svih atributa
+     */
     @Override
     public int hashCode() {
         return Objects.hash(id, name, biography);
