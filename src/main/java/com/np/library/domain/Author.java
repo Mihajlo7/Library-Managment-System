@@ -11,9 +11,9 @@ import java.util.Objects;
 import java.util.Set;
 
 /**
- * @author Mihajlo
- * Klasa opisujue autora
  *
+ * Klasa predstavlja autora
+ * @author Mihajlo
  */
 @Entity
 @Table(name = "author")
