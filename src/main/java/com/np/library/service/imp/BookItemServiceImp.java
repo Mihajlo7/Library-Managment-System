@@ -18,8 +18,14 @@ import java.util.Set;
  */
 @Service
 public class BookItemServiceImp implements BookItemService {
+    /**
+     * Instanca repozitorijuma za rad sa primercima knjiga
+     */
     @Autowired
     private BookItemRepository bookItemRepository;
+    /**
+     * Instanca repozitorijuma za rad sa knjigama
+     */
     @Autowired
     private BookRepository bookRepository;
     @Override

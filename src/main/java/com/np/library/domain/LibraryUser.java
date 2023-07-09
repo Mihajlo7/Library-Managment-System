@@ -26,18 +26,18 @@ import java.util.Set;
 public class LibraryUser extends User {
     /**
      * Konstruktor
-     * @param username
-     * @param password
-     * @param id
-     * @param role
-     * @param library
-     * @param name
-     * @param surname
-     * @param age
-     * @param status
-     * @param timeJoined
-     * @param email
-     * @param loans
+     * @param username korisnicko ime kao string
+     * @param password sifra kao string
+     * @param id id kao long
+     * @param role uloga kao enum
+     * @param library biblioteka kao klasa
+     * @param name ime kao string
+     * @param surname prezime kao string
+     * @param age godine kao int
+     * @param status status kao enum
+     * @param timeJoined datum prijave kao localDate
+     * @param email email kao string
+     * @param loans loans kao set
      */
     public LibraryUser(String username, String password, Long id, UserRole role, Library library, String name, String surname, Integer age, AccountStatus status, LocalDate timeJoined, String email, Set<Loan> loans) {
         super(username, password, id, role, library);

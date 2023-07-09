@@ -2,10 +2,12 @@ package com.np.library.domain.enumeration;
 
 /**
  * Status naloga
- * Moze biti aktivan, zatvoren, arhiviran
  * @author Mihajlo
  */
 public enum AccountStatus {
 
+    /**
+     * Moze biti aktivan, zatvoren, arhiviran
+     */
     ACTIVE,CLOSED,HISTORICAL
 }

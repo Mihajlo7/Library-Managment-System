@@ -45,8 +45,8 @@ public class Author {
 
     /**
      * Konstruktor koji prima ime i biografiju
-     * @param name
-     * @param biography
+     * @param name ime autora
+     * @param biography biografija
      */
     public Author(String name, String biography) {
         this.name = name;
@@ -55,7 +55,7 @@ public class Author {
 
     /**
      * Postavlja ime autora
-     * @param name
+     * @param name ime autora kao string
      * @throws IllegalArgumentException ako je name null ili prazan string
      */
     public void setName(String name) {
@@ -70,7 +70,7 @@ public class Author {
 
     /**
      * Postavlja biografiju autora
-     * @param biography
+     * @param biography biografija autoa kao string
      */
     public void setBiography(String biography) {
 //        if(biography==null){
@@ -84,7 +84,7 @@ public class Author {
 
     /**
      * Postavlja knjige koje je napisao autor
-     * @param books
+     * @param books knjige kao set
      */
     public void setBooks(Set<Book> books) {
         this.books = books;

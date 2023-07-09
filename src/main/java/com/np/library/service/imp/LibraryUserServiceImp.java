@@ -17,10 +17,19 @@ import java.util.Optional;
  */
 @Service
 public class LibraryUserServiceImp implements LibraryUserService {
+    /**
+     * Instanca repozitorijuma za rad sa clanovima biblioteke
+     */
     @Autowired
     private LibraryUserRepository libraryUserRepository;
+    /**
+     * Instanca repozitorijuma za rad sa korisnicima
+     */
     @Autowired
     private UserRepository userRepository;
+    /**
+     * Instanca repozitorijuma za rad sa bibliotekama
+     */
 
     @Autowired
     private LibraryRepository libraryRepository;

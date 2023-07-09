@@ -23,14 +23,14 @@ import java.util.Set;
 public class Book {
     /**
      * Konstruktor koji prima sve vredosti bez id
-     * @param isbn
-     * @param title
-     * @param subject
-     * @param publisher
-     * @param language
-     * @param numberOfPages
-     * @param numberOfItems
-     * @param authors
+     * @param isbn isbn kao string
+     * @param title naslov kao string
+     * @param subject opis kao string
+     * @param publisher objavljacka kuca kao string
+     * @param language jezik kao string
+     * @param numberOfPages broj starana kao int
+     * @param numberOfItems broj primeraka kao int
+     * @param authors autori kao set
      */
     public Book(String isbn, String title, String subject, String publisher, String language, Integer numberOfPages, Integer numberOfItems, Set<Author> authors) {
         this.isbn = isbn;

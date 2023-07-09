@@ -15,6 +15,9 @@ import java.util.Optional;
  */
 @Service
 public class AuthorServiceImp implements AuthorService {
+    /**
+     * Instanca repozitorijuma za rad sa autorima
+     */
     @Autowired
     private AuthorRepository authorRepository;
     @Override

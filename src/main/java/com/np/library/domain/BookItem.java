@@ -26,10 +26,10 @@ import java.util.Set;
 public class BookItem {
     /**
      * Konstruktor
-     * @param usageStatus
-     * @param bookStatus
-     * @param purchaseDate
-     * @param book
+     * @param usageStatus status koriscenja
+     * @param bookStatus status knjige
+     * @param purchaseDate datum nabavke
+     * @param book knjiga
      */
     public BookItem(UsageStatus usageStatus, BookStatus bookStatus, LocalDate purchaseDate, Book book) {
         this.usageStatus = usageStatus;

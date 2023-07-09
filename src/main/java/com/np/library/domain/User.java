@@ -82,8 +82,8 @@ public  class User {
 
     /**
      * Postavlja ulogu
-     * @param role
-     * @throws IllegalArgumentException
+     * @param role uloga korisnika kao enum
+     * @throws IllegalArgumentException uloga je null
      */
     public void setRole(UserRole role) {
         if(role==null){

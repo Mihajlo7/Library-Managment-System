@@ -26,12 +26,24 @@ import java.util.Set;
  */
 @Service
 public class LoanServiceImp implements LoanService {
+    /**
+     * Instanca repozitorijuma za rad sa zaduzenjima
+     */
     @Autowired
     private LoanRepository loanRepository;
+    /**
+     * Instanca repozitorijuma za rad sa clanovima biblioteke
+     */
     @Autowired
     private LibraryUserRepository libraryUserRepository;
+    /**
+     * Instanca repozitorijuma za rad sa primercima knjiga
+     */
     @Autowired
     private BookItemRepository bookItemRepository;
+    /**
+     * Instanca repozitorijuma za rad sa stavkama izdavanja
+     */
     @Autowired
     private LoanItemRepository loanItemRepository;
     @Override
