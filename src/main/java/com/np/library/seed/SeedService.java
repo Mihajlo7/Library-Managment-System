@@ -13,18 +13,40 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Klasa koja automacki ubacuje podatke u bazu podataka
+ */
 @Service
 public class SeedService {
+    /**
+     * Instanca repozitorijuma za rad sa knjigama
+     */
     @Autowired
     private BookRepository bookRepository;
+    /**
+     * Instanca repozitorijuma za rad sa autorima
+     */
     @Autowired
     private AuthorRepository authorRepository;
+    /**
+     * Instanca repozitorijuma za rad sa bibliotekama
+     */
     @Autowired
     private LibraryRepository libraryRepository;
+    /**
+     * Instanca repozitorijuma za rad sa bibliotekarima
+     */
     @Autowired
     private LibrarianRepository librarianRepository;
+    /**
+     * Instanca repozitorijuma za rad sa clanovima biblioteke
+     */
     @Autowired
     private LibraryUserRepository libraryUserRepository;
+
+    /**
+     * Metoda kreira podatke i ubacuje ih u bazu
+     */
     public void init(){
         List<Author> authors=new ArrayList<>();
         Author a1=new Author(null,"Milos Crnjanski","Jedan od najboljih pripovedaca i romansijera",null);
